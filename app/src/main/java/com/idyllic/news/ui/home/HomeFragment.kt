@@ -10,10 +10,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.idyllic.news.MainActivity
 import com.idyllic.news.databinding.FragmentHomeBinding
 import com.idyllic.news.utils.NewsResult
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+import kotlin.math.log
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -38,6 +40,16 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        if (!viewModel.isNavViewVisible) {
+            (activity as MainActivity).showNavigationBottom()
+            (activity as MainActivity).supportActionBar!!.show()
+            viewModel.isNavViewVisible = true
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

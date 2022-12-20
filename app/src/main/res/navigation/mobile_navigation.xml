@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@id/navigation_notifications">
 
     <fragment
         android:id="@+id/navigation_home"
@@ -13,13 +13,19 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.idyllic.news.ui.dashboard.SavedFragment"
+        android:name="com.idyllic.news.ui.saved.SavedFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_saved" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.idyllic.news.ui.notifications.IntroFragment"
+        android:name="com.idyllic.news.ui.intro.IntroFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_intro" />
+        tools:layout="@layout/fragment_intro" >
+        <action
+            android:id="@+id/action_navigation_notifications_to_navigation_home"
+            app:destination="@id/navigation_home"
+            app:popUpTo="@id/navigation_notifications"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

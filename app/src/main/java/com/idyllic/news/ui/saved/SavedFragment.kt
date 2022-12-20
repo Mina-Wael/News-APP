@@ -1,4 +1,4 @@
-package com.idyllic.news.ui.dashboard
+package com.idyllic.news.ui.saved
 
 import android.os.Bundle
 import android.view.LayoutInflater

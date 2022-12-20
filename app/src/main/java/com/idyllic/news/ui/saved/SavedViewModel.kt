@@ -1,4 +1,4 @@
-package com.idyllic.news.ui.dashboard
+package com.idyllic.news.ui.saved
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
