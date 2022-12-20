@@ -1,6 +1,10 @@
 package com.idyllic.news.di
 
 import android.app.Application
+import android.content.Context
+import android.content.SharedPreferences
+import com.idyllic.news.data.localsource.SharedPrefDatabase
+import com.idyllic.news.data.localsource.SharedPrefDatabaseIntr
 import com.idyllic.news.data.remotesource.NewsApi
 import com.idyllic.news.data.repository.RepositoryImpl
 import com.idyllic.news.domain.repository.RepositoryIntr
@@ -27,5 +31,15 @@ class NewsModule {
 
     @Provides
     @Singleton
-    fun getRepo(newsApi: NewsApi):RepositoryIntr = RepositoryImpl(newsApi)
+    fun getRepo(newsApi: NewsApi): RepositoryIntr = RepositoryImpl(newsApi)
+
+    @Provides
+    @Singleton
+    fun provideSharedPref(context: Application): SharedPreferences =
+        context.getSharedPreferences("SharedPref", Context.MODE_PRIVATE)
+
+    @Provides
+    @Singleton
+    fun provideSharedDatabase(sharedPreferences: SharedPreferences): SharedPrefDatabaseIntr =
+        SharedPrefDatabase(sharedPreferences)
 }

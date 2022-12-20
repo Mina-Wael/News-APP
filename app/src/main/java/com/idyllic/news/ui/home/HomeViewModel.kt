@@ -29,6 +29,8 @@ class HomeViewModel @Inject constructor(
 
     val articles: LiveData<NewsResult<List<Article>>> = _articles
 
+    var isNavViewVisible = false
+
     fun getAllNews() {
 
         repo.getAllArticles(API_KEY).onEach {
