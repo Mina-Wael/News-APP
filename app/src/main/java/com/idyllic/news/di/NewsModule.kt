@@ -3,6 +3,9 @@ package com.idyllic.news.di
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.room.Room
+import com.idyllic.news.data.localsource.ArticleDao
+import com.idyllic.news.data.localsource.LocalDatabase
 import com.idyllic.news.data.localsource.SharedPrefDatabase
 import com.idyllic.news.data.localsource.SharedPrefDatabaseIntr
 import com.idyllic.news.data.remotesource.NewsApi
@@ -42,4 +45,9 @@ class NewsModule {
     @Singleton
     fun provideSharedDatabase(sharedPreferences: SharedPreferences): SharedPrefDatabaseIntr =
         SharedPrefDatabase(sharedPreferences)
+
+    @Provides
+    @Singleton
+    fun provideLocalDatabase(context: Application): ArticleDao =
+        Room.databaseBuilder(context, LocalDatabase::class.java, "ArticleDatabase").build().getDao()
 }
