@@ -10,7 +10,9 @@ import com.idyllic.news.data.localsource.SharedPrefDatabase
 import com.idyllic.news.data.localsource.SharedPrefDatabaseIntr
 import com.idyllic.news.data.remotesource.NewsApi
 import com.idyllic.news.data.repository.RepositoryImpl
+import com.idyllic.news.data.repository.SavedRepository
 import com.idyllic.news.domain.repository.RepositoryIntr
+import com.idyllic.news.domain.repository.SavedRepositoryIntr
 import com.idyllic.news.utils.Common.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -50,4 +52,9 @@ class NewsModule {
     @Singleton
     fun provideLocalDatabase(context: Application): ArticleDao =
         Room.databaseBuilder(context, LocalDatabase::class.java, "ArticleDatabase").build().getDao()
+
+    @Provides
+    @Singleton
+    fun provideSavedRepository(articleDao: ArticleDao): SavedRepositoryIntr =
+        SavedRepository(articleDao)
 }

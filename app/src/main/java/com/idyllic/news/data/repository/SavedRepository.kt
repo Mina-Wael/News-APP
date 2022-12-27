@@ -6,19 +6,17 @@ import com.idyllic.news.domain.repository.SavedRepositoryIntr
 import javax.inject.Inject
 
 class SavedRepository @Inject constructor(private val dao: ArticleDao) : SavedRepositoryIntr {
+
     override suspend fun insertArticle(article: Article) {
-        TODO("Not yet implemented")
+        dao.insertArticle(article)
     }
 
-    override fun getAllArticles(): List<Article> {
-        TODO("Not yet implemented")
-    }
+    override fun getAllArticles(): List<Article> = dao.getAllArticles()
 
     override fun deleteArticle(article: Article) {
-        TODO("Not yet implemented")
+        dao.deleteArticle(article)
     }
 
-    override fun getSingleArticle(id: Int): Article {
-        TODO("Not yet implemented")
-    }
+    override fun getSingleArticle(id: Int): Article = dao.getSingleArticle(id)
+
 }
