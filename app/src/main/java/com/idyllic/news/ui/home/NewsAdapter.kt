@@ -11,7 +11,10 @@ import com.bumptech.glide.Glide
 import com.idyllic.news.databinding.MainRvRowBinding
 import com.idyllic.news.domain.pojo.Article
 
-class NewsAdapter(diffCallback: DiffUtil.ItemCallback<Article>) :
+class NewsAdapter(
+    val onClick: (article: Article) -> Unit,
+    diffCallback: DiffUtil.ItemCallback<Article>
+) :
     PagingDataAdapter<Article, NewsAdapter.NewsHolder>(
         diffCallback
     ) {
@@ -24,6 +27,11 @@ class NewsAdapter(diffCallback: DiffUtil.ItemCallback<Article>) :
             Glide.with(context).load(article.urlToImage).into(binding.image)
             binding.tvTitle.text = article.title
         }
+        fun onItemClick(article: Article){
+            binding.root.setOnClickListener {
+                onClick(article)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsHolder {
@@ -33,6 +41,7 @@ class NewsAdapter(diffCallback: DiffUtil.ItemCallback<Article>) :
 
     override fun onBindViewHolder(holder: NewsHolder, position: Int) {
         holder.setData(getItem(position)!!)
+        holder.onItemClick(getItem(position)!!)
     }
 
 

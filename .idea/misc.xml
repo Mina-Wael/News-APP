@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/MinaApps/NewsApp/New1/app/src/main/res/drawable/favorite.xml" value="0.1445" />
+        <entry key="..\:/MinaApps/NewsApp/New1/app/src/main/res/drawable/favorite_border.xml" value="0.1445" />
         <entry key="..\:/MinaApps/NewsApp/New1/app/src/main/res/drawable/left_arrow.xml" value="0.144" />
         <entry key="..\:/MinaApps/NewsApp/New1/app/src/main/res/drawable/right_arrow.xml" value="0.144" />
         <entry key="..\:/MinaApps/NewsApp/New1/app/src/main/res/drawable/splash_image.xml" value="0.144" />
         <entry key="..\:/MinaApps/NewsApp/New1/app/src/main/res/layout/activity_main.xml" value="0.19635416666666666" />
+        <entry key="..\:/MinaApps/NewsApp/New1/app/src/main/res/layout/fragment_details.xml" value="0.19635416666666666" />
         <entry key="..\:/MinaApps/NewsApp/New1/app/src/main/res/layout/fragment_home.xml" value="0.19635416666666666" />
         <entry key="..\:/MinaApps/NewsApp/New1/app/src/main/res/layout/fragment_intro.xml" value="0.2" />
         <entry key="..\:/MinaApps/NewsApp/New1/app/src/main/res/layout/fragment_notifications.xml" value="0.19635416666666666" />

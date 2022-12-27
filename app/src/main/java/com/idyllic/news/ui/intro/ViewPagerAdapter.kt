@@ -14,7 +14,7 @@ class ViewPagerAdapter : RecyclerView.Adapter<ViewPagerAdapter.PagerViewHolder>(
                     "select your country and your language to get news of your country with your language"
         ),
         PagerItem(
-            R.drawable.favorite, "Save your favorite news",
+            R.drawable.favorite_img, "Save your favorite news",
             "you can save your favorite news to read them any time you want without Internet Connection"
         ),
         PagerItem(
